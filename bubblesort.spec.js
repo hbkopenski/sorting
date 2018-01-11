@@ -14,4 +14,19 @@ describe('Bubble Sort', function(){
   it('works with negative numbers', function(){
     expect( bubbleSort([-3, -4, -1, -2, -5]) ).toEqual( [-1, -2, -3, -4, -5] );
   });
+  beforeAll(function () {
+   spyOn(window, swap).and.callThrough();
+  });
+  it('it calls swap a certain number of times', function () {
+   bubbleSort([2,1,3]);
+   expect(swap().calls.count()).toEqual(1);
+  });
 });
+
+// describe('swap', function(){
+//
+// });
+//
+// describe('compare', function(){
+//
+// });
